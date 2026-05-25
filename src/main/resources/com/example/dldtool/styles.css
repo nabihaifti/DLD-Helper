@@ -1,0 +1,341 @@
+/* ── ROOT COLOURS ───────────────────────────────────────────── */
+.root {
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+
+    /* Lavender – Menu */
+    -lav-light:   #F3F0FB;
+    -lav-mid:     #C8BEF0;
+    -lav-dark:    #4A3888;
+
+    /* Sky Blue – Simulator */
+    -sky-light:   #E8F5FB;
+    -sky-mid:     #BFDFEF;
+    -sky-dark:    #2E7FA8;
+
+    /* Pink – Simplifier */
+    -pink-light:  #FBF0F5;
+    -pink-mid:    #F2C9D8;
+    -pink-dark:   #A03060;
+
+    /* Sage Green – K-Map */
+    -sage-light:  #EBF4EC;
+    -sage-mid:    #C5DCC8;
+    -sage-dark:   #2D6B35;
+
+    /* Butter Yellow – accents */
+    -yellow-light: #FDFAE8;
+    -yellow-mid:   #F7E8A0;
+    -yellow-dark:  #8A6E00;
+
+    /* Neutrals */
+    -white:       #FEFEFE;
+    -text:        #2E2E2E;
+    -text-muted:  #7A7A7A;
+}
+
+/* ── MENU SCREEN ────────────────────────────────────────────── */
+.menu-root {
+    -fx-background-color: -lav-light;
+}
+
+.menu-title {
+    -fx-font-size: 38px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -lav-dark;
+}
+
+.menu-subtitle {
+    -fx-font-size: 14px;
+    -fx-text-fill: -text-muted;
+}
+
+.menu-card {
+    -fx-background-radius: 16px;
+    -fx-border-radius: 16px;
+    -fx-border-width: 1.5px;
+    -fx-cursor: hand;
+    -fx-padding: 16px 20px;
+}
+
+.menu-card-sim {
+    -fx-background-color: -sky-light;
+    -fx-border-color: -sky-mid;
+}
+
+.menu-card-func {
+    -fx-background-color: -pink-light;
+    -fx-border-color: -pink-mid;
+}
+
+.menu-card-kmap {
+    -fx-background-color: -sage-light;
+    -fx-border-color: -sage-mid;
+}
+
+.menu-card-title {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+.menu-card-title-sim  { -fx-text-fill: -sky-dark;  }
+.menu-card-title-func { -fx-text-fill: -pink-dark; }
+.menu-card-title-kmap { -fx-text-fill: -sage-dark; }
+
+.menu-card-sub {
+    -fx-font-size: 12px;
+    -fx-text-fill: -text-muted;
+}
+
+/* ── SHARED BUTTON STYLES ───────────────────────────────────── */
+.btn {
+    -fx-background-radius: 999px;
+    -fx-border-radius: 999px;
+    -fx-border-width: 1.5px;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-padding: 8px 20px;
+}
+
+.btn-sky {
+    -fx-background-color: -sky-mid;
+    -fx-border-color: -sky-dark;
+    -fx-text-fill: -sky-dark;
+}
+
+.btn-sky:hover    { -fx-background-color: -sky-dark; -fx-text-fill: -white; }
+
+.btn-pink {
+    -fx-background-color: -pink-mid;
+    -fx-border-color: -pink-dark;
+    -fx-text-fill: -pink-dark;
+}
+
+.btn-pink:hover   { -fx-background-color: -pink-dark; -fx-text-fill: -white; }
+
+.btn-sage {
+    -fx-background-color: -sage-mid;
+    -fx-border-color: -sage-dark;
+    -fx-text-fill: -sage-dark;
+}
+
+.btn-sage:hover   { -fx-background-color: -sage-dark; -fx-text-fill: -white; }
+
+.btn-yellow {
+    -fx-background-color: -yellow-mid;
+    -fx-border-color: -yellow-dark;
+    -fx-text-fill: -yellow-dark;
+}
+
+.btn-yellow:hover { -fx-background-color: -yellow-dark; -fx-text-fill: -white; }
+
+.btn-lav {
+    -fx-background-color: -lav-mid;
+    -fx-border-color: -lav-dark;
+    -fx-text-fill: -lav-dark;
+}
+
+.btn-lav:hover    { -fx-background-color: -lav-dark; -fx-text-fill: -white; }
+
+/* ── SIMULATOR SCREEN ───────────────────────────────────────── */
+.sim-root {
+    -fx-background-color: -sky-light;
+}
+
+.sim-toolbar {
+    -fx-background-color: -white;
+    -fx-background-radius: 14px;
+    -fx-border-radius: 14px;
+    -fx-border-color: -sky-mid;
+    -fx-border-width: 1.5px;
+    -fx-padding: 10px 14px;
+}
+
+.tool-btn {
+    -fx-background-color: -sky-light;
+    -fx-border-color: -sky-mid;
+    -fx-border-width: 1.5px;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-text-fill: -sky-dark;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-padding: 5px 12px;
+}
+
+.tool-btn:hover   { -fx-background-color: -sky-mid; }
+
+.tool-btn-selected {
+    -fx-background-color: -sky-dark;
+    -fx-border-color: -sky-dark;
+    -fx-text-fill: -white;
+}
+
+.sim-canvas-area {
+    -fx-background-color: -white;
+    -fx-background-radius: 14px;
+    -fx-border-radius: 14px;
+    -fx-border-color: -sky-mid;
+    -fx-border-width: 1.5px;
+}
+
+/* ── SIMPLIFIER SCREEN ──────────────────────────────────────── */
+.simp-root {
+    -fx-background-color: -pink-light;
+}
+
+.simp-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -pink-dark;
+}
+
+.simp-card {
+    -fx-background-color: -white;
+    -fx-background-radius: 16px;
+    -fx-border-radius: 16px;
+    -fx-border-color: -pink-mid;
+    -fx-border-width: 1.5px;
+    -fx-padding: 16px;
+}
+.func-input {
+    -fx-background-color: -pink-light;
+    -fx-border-color: -pink-mid;
+    -fx-border-width: 1.5px;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-font-size: 16px;
+    -fx-text-fill: -text;
+    -fx-padding: 10px 14px;
+    -fx-alignment: CENTER-LEFT;
+}
+
+.func-input:focused {
+    -fx-border-color: -pink-dark;
+    -fx-background-color: -white;
+}
+
+.result-expr {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -pink-dark;
+    -fx-font-family: "Courier New", monospace;
+}
+
+.result-card {
+    -fx-background-color: -white;
+    -fx-background-radius: 16px;
+    -fx-border-radius: 16px;
+    -fx-border-color: -sage-mid;
+    -fx-border-width: 1.5px;
+    -fx-padding: 16px;
+}
+
+/* ── KMAP SCREEN ────────────────────────────────────────────── */
+.kmap-root {
+    -fx-background-color: -sage-light;
+}
+
+.kmap-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -sage-dark;
+}
+
+.kmap-card {
+    -fx-background-color: -white;
+    -fx-background-radius: 16px;
+    -fx-border-radius: 16px;
+    -fx-border-color: -sage-mid;
+    -fx-border-width: 1.5px;
+    -fx-padding: 16px;
+}
+
+.kmap-cell {
+    -fx-background-color: -white;
+    -fx-border-color: -sage-mid;
+    -fx-border-width: 1px;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -text;
+    -fx-cursor: hand;
+    -fx-min-width: 44px;
+    -fx-min-height: 44px;
+    -fx-alignment: center;
+}
+
+.kmap-cell:hover     { -fx-background-color: -sage-light; }
+.kmap-cell-one       { -fx-background-color: -sage-mid;   -fx-text-fill: -sage-dark; }
+.kmap-cell-x         { -fx-background-color: -yellow-mid; -fx-text-fill: -yellow-dark; }
+.kmap-cell-grouped   { -fx-border-color: -pink-dark; -fx-border-width: 3px; }
+
+.kmap-header-cell {
+    -fx-background-color: -sage-light;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -sage-dark;
+    -fx-alignment: center;
+    -fx-min-width: 44px;
+    -fx-min-height: 32px;
+}
+
+.var-btn {
+    -fx-background-color: -white;
+    -fx-border-color: -sage-mid;
+    -fx-border-width: 1.5px;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-text-fill: -sage-dark;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-min-width: 36px;
+    -fx-min-height: 36px;
+}
+
+.var-btn:hover        { -fx-background-color: -sage-light; }
+.var-btn-active       { -fx-background-color: -sage-mid; -fx-border-color: -sage-dark; }
+
+.kmap-result-expr {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -pink-dark;
+    -fx-font-family: "Courier New", monospace;
+}
+
+/* ── BACK BUTTON ────────────────────────────────────────────── */
+.back-btn {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: -text-muted;
+    -fx-font-size: 13px;
+    -fx-cursor: hand;
+    -fx-padding: 4px 0px;
+}
+
+.back-btn:hover { -fx-text-fill: -text; }
+
+/* ── TAB PANE ───────────────────────────────────────────────── */
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: transparent;
+}
+
+.tab-pane .tab {
+    -fx-background-color: -pink-light;
+    -fx-border-color: -pink-mid;
+    -fx-border-width: 1.5px;
+    -fx-background-radius: 10px 10px 0 0;
+    -fx-border-radius: 10px 10px 0 0;
+    -fx-padding: 6px 16px;
+}
+
+.tab-pane .tab:selected {
+    -fx-background-color: -pink-mid;
+}
+
+.tab-pane .tab .tab-label {
+    -fx-text-fill: -pink-dark;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+}

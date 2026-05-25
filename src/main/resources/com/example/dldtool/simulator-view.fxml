@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="10"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.dldtool.controller.SimulatorController"
+      styleClass="sim-root"
+      prefWidth="700" prefHeight="550">
+
+    <padding>
+        <Insets top="14" bottom="14" left="14" right="14"/>
+    </padding>
+
+    <!-- Back button + title -->
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Button text="← Back" styleClass="back-btn"
+                onAction="#goBack"/>
+        <Label text="Logic Gates Simulator ⚡"
+               styleClass="sim-title"
+               style="-fx-font-size:18px; -fx-font-weight:bold; -fx-text-fill:#2E7FA8;"/>
+    </HBox>
+
+    <!-- Toolbar -->
+    <ScrollPane hbarPolicy="NEVER" vbarPolicy="NEVER"
+                fitToHeight="true" styleClass="sim-toolbar"
+                style="-fx-background-color:transparent; -fx-background:transparent;">
+        <HBox spacing="8" alignment="CENTER_LEFT" fx:id="toolbarBox">
+            <padding>
+                <Insets top="6" bottom="6" left="10" right="10"/>
+            </padding>
+
+            <!-- Gate tools -->
+            <VBox alignment="CENTER" spacing="3" styleClass="tool-btn"
+                  fx:id="toolAND" onMouseClicked="#selectToolAND">
+                <Canvas fx:id="andPreview" width="50" height="36"/>
+                <Label text="AND" style="-fx-font-size:10px; -fx-text-fill:#2E7FA8; -fx-font-weight:bold;"/>
+            </VBox>
+            <VBox alignment="CENTER" spacing="3" styleClass="tool-btn"
+                  fx:id="toolOR" onMouseClicked="#selectToolOR">
+                <Canvas fx:id="orPreview" width="50" height="36"/>
+                <Label text="OR" style="-fx-font-size:10px; -fx-text-fill:#2E7FA8; -fx-font-weight:bold;"/>
+            </VBox>
+            <VBox alignment="CENTER" spacing="3" styleClass="tool-btn"
+                  fx:id="toolNOT" onMouseClicked="#selectToolNOT">
+                <Canvas fx:id="notPreview" width="50" height="36"/>
+                <Label text="NOT" style="-fx-font-size:10px; -fx-text-fill:#2E7FA8; -fx-font-weight:bold;"/>
+            </VBox>
+            <VBox alignment="CENTER" spacing="3" styleClass="tool-btn"
+                  fx:id="toolXOR" onMouseClicked="#selectToolXOR">
+                <Canvas fx:id="xorPreview" width="50" height="36"/>
+                <Label text="XOR" style="-fx-font-size:10px; -fx-text-fill:#2E7FA8; -fx-font-weight:bold;"/>
+            </VBox>
+            <VBox alignment="CENTER" spacing="3" styleClass="tool-btn"
+                  fx:id="toolNAND" onMouseClicked="#selectToolNAND">
+                <Canvas fx:id="nandPreview" width="50" height="36"/>
+                <Label text="NAND" style="-fx-font-size:10px; -fx-text-fill:#2E7FA8; -fx-font-weight:bold;"/>
+            </VBox>
+            <VBox alignment="CENTER" spacing="3" styleClass="tool-btn"
+                  fx:id="toolNOR" onMouseClicked="#selectToolNOR">
+                <Canvas fx:id="norPreview" width="50" height="36"/>
+                <Label text="NOR" style="-fx-font-size:10px; -fx-text-fill:#2E7FA8; -fx-font-weight:bold;"/>
+            </VBox>
+
+            <!-- Separator -->
+            <Label text="|" style="-fx-text-fill:#BFDFEF; -fx-font-size:20px;"/>
+
+            <!-- Wire, Input, Output tools -->
+            <VBox alignment="CENTER" spacing="3" styleClass="tool-btn"
+                  fx:id="toolWire" onMouseClicked="#selectToolWire">
+                <Label text="──" style="-fx-font-size:18px; -fx-text-fill:#2E7FA8;"/>
+                <Label text="Wire" style="-fx-font-size:10px; -fx-text-fill:#2E7FA8; -fx-font-weight:bold;"/>
+            </VBox>
+            <VBox alignment="CENTER" spacing="3" styleClass="tool-btn"
+                  fx:id="toolInput" onMouseClicked="#selectToolInput">
+                <Label text="◉" style="-fx-font-size:18px; -fx-text-fill:#2E7FA8;"/>
+                <Label text="Input" style="-fx-font-size:10px; -fx-text-fill:#2E7FA8; -fx-font-weight:bold;"/>
+            </VBox>
+            <VBox alignment="CENTER" spacing="3" styleClass="tool-btn"
+                  fx:id="toolOutput" onMouseClicked="#selectToolOutput">
+                <Label text="◎" style="-fx-font-size:18px; -fx-text-fill:#A03060;"/>
+                <Label text="Output" style="-fx-font-size:10px; -fx-text-fill:#2E7FA8; -fx-font-weight:bold;"/>
+            </VBox>
+
+            <!-- Separator -->
+            <Label text="|" style="-fx-text-fill:#BFDFEF; -fx-font-size:20px;"/>
+
+            <!-- Delete tool -->
+            <VBox alignment="CENTER" spacing="3" styleClass="tool-btn"
+                  fx:id="toolDelete" onMouseClicked="#selectToolDelete">
+                <Label text="✕" style="-fx-font-size:18px; -fx-text-fill:#A03060;"/>
+                <Label text="Delete" style="-fx-font-size:10px; -fx-text-fill:#A03060; -fx-font-weight:bold;"/>
+            </VBox>
+        </HBox>
+    </ScrollPane>
+
+    <!-- Canvas area -->
+    <StackPane VBox.vgrow="ALWAYS" styleClass="sim-canvas-area">
+        <Canvas fx:id="simulatorCanvas" width="672" height="300"/>
+    </StackPane>
+
+    <!-- Bottom controls -->
+    <VBox spacing="6">
+        <!-- Row 1: Simulation controls -->
+        <HBox spacing="6" alignment="CENTER_LEFT">
+            <Button text="▶ Start"     styleClass="btn, btn-sage"
+                    style="-fx-font-size:10px; -fx-padding:5 10;"
+                    fx:id="startBtn"   onAction="#startSimulation"/>
+            <Button text="⏸ Pause"    styleClass="btn, btn-yellow"
+                    style="-fx-font-size:10px; -fx-padding:5 10;"
+                    onAction="#pauseSimulation"/>
+            <Button text="⏹ Reset"    styleClass="btn, btn-pink"
+                    style="-fx-font-size:10px; -fx-padding:5 10;"
+                    onAction="#resetSimulation"/>
+            <Button text="Clear All"   styleClass="btn, btn-pink"
+                    style="-fx-font-size:10px; -fx-padding:5 10;"
+                    onAction="#clearAll"/>
+            <Button text="Truth Table" styleClass="btn, btn-lav"
+                    style="-fx-font-size:10px; -fx-padding:5 10;"
+                    onAction="#generateTruthTable"/>
+        </HBox>
+        <!-- Row 2: Circuit management -->
+        <HBox spacing="6" alignment="CENTER_LEFT">
+            <Button text="Save Block"  styleClass="btn, btn-sky"
+                    style="-fx-font-size:10px; -fx-padding:5 10;"
+                    onAction="#saveAsBlock"/>
+            <Button text="Blocks"      styleClass="btn, btn-lav"
+                    style="-fx-font-size:10px; -fx-padding:5 10;"
+                    onAction="#showBlocks"/>
+            <Button text="Save"        styleClass="btn, btn-sage"
+                    style="-fx-font-size:10px; -fx-padding:5 10;"
+                    onAction="#saveCircuit"/>
+            <Button text="Load"        styleClass="btn, btn-yellow"
+                    style="-fx-font-size:10px; -fx-padding:5 10;"
+                    onAction="#loadCircuit"/>
+        </HBox>
+        <!-- Status label -->
+        <Label fx:id="statusLabel"
+               text="Select a tool and click the canvas to place components"
+               style="-fx-text-fill:#7A7A7A; -fx-font-size:11px;"/>
+    </VBox>
+</VBox>

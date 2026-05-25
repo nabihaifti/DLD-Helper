@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="14"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.dldtool.controller.SimplifierController"
+      styleClass="simp-root"
+      prefWidth="700" prefHeight="550">
+
+    <padding>
+        <Insets top="14" bottom="14" left="20" right="20"/>
+    </padding>
+
+    <!-- Back + Title -->
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Button text="← Back" styleClass="back-btn" onAction="#goBack"/>
+        <Label text="Function Simplifier ✦"
+               styleClass="simp-title"/>
+    </HBox>
+
+    <!-- Tab panel -->
+    <TabPane fx:id="tabPane" styleClass="simp-tab-pane"
+             VBox.vgrow="ALWAYS" tabClosingPolicy="UNAVAILABLE">
+
+        <!-- Tab 1: Simplifier -->
+        <Tab text="  Simplify  ">
+            <VBox spacing="14" style="-fx-padding: 14 0 0 0;">
+
+                <!-- Input card -->
+                <VBox styleClass="simp-card" spacing="10">
+                    <Label text="Enter your Boolean expression"
+                           style="-fx-font-size:13px; -fx-text-fill:#7A7A7A;"/>
+                    <TextField fx:id="expressionInput"
+                               styleClass="func-input"
+                               promptText="e.g.  A.B' + A'.B  or  A.B.C + A'.C"/>
+                    <HBox spacing="8" alignment="CENTER_LEFT">
+                        <Label text="Quick insert:"
+                               style="-fx-font-size:12px; -fx-text-fill:#7A7A7A;"/>
+                        <Button text="+ (OR)"  styleClass="btn, btn-pink"
+                                style="-fx-font-size:11px; -fx-padding: 4 10;"
+                                onAction="#insertOR"/>
+                        <Button text=". (AND)" styleClass="btn, btn-pink"
+                                style="-fx-font-size:11px; -fx-padding: 4 10;"
+                                onAction="#insertAND"/>
+                        <Button text="' (NOT)" styleClass="btn, btn-pink"
+                                style="-fx-font-size:11px; -fx-padding: 4 10;"
+                                onAction="#insertNOT"/>
+                        <Button text="( )"     styleClass="btn, btn-lav"
+                                style="-fx-font-size:11px; -fx-padding: 4 10;"
+                                onAction="#insertParens"/>
+                        <Button text="Clear ✕" styleClass="btn, btn-yellow"
+                                style="-fx-font-size:11px; -fx-padding: 4 10;"
+                                onAction="#clearInput"/>
+                    </HBox>
+                </VBox>
+
+                <!-- Simplify button -->
+                <HBox alignment="CENTER">
+                    <Button text="Simplify ✦" styleClass="btn, btn-pink"
+                            style="-fx-font-size:14px; -fx-padding: 10 30;"
+                            onAction="#simplify"/>
+                </HBox>
+
+                <!-- Result card -->
+                <VBox styleClass="result-card" spacing="8">
+                    <Label text="Simplified expression"
+                           style="-fx-font-size:12px; -fx-text-fill:#7A7A7A;"/>
+                    <Label fx:id="resultLabel" styleClass="result-expr"
+                           text="—" wrapText="true"/>
+                    <Label fx:id="detailLabel"
+                           style="-fx-font-size:12px; -fx-text-fill:#7A7A7A;"
+                           text="" wrapText="true"/>
+                </VBox>
+
+            </VBox>
+        </Tab>
+
+        <!-- Tab 2: Truth Table -->
+        <Tab text="  Truth Table  ">
+            <VBox spacing="14" style="-fx-padding: 14 0 0 0;">
+
+                <VBox styleClass="simp-card" spacing="10">
+                    <Label text="Enter expression to generate truth table"
+                           style="-fx-font-size:13px; -fx-text-fill:#7A7A7A;"/>
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <TextField fx:id="ttInput"
+                                   styleClass="func-input"
+                                   promptText="e.g.  A.B + A'.C"
+                                   HBox.hgrow="ALWAYS"/>
+                        <Button text="Generate ⊞"
+                                styleClass="btn, btn-sage"
+                                style="-fx-padding: 8 18;"
+                                onAction="#generateTruthTable"/>
+                    </HBox>
+                </VBox>
+
+                <ScrollPane VBox.vgrow="ALWAYS" fitToWidth="true"
+                            style="-fx-background-color:transparent; -fx-background:transparent;">
+                    <TableView fx:id="truthTable" VBox.vgrow="ALWAYS"
+                               style="-fx-background-color:transparent;"/>
+                </ScrollPane>
+
+            </VBox>
+        </Tab>
+
+    </TabPane>
+</VBox>

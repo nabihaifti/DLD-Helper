@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+
+<VBox spacing="12"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.dldtool.controller.KMapController"
+      styleClass="kmap-root"
+      prefWidth="700" prefHeight="550">
+
+    <padding>
+        <Insets top="14" bottom="14" left="20" right="20"/>
+    </padding>
+
+    <!-- Back + Title -->
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Button text="← Back" styleClass="back-btn" onAction="#goBack"/>
+        <Label text="K-Map Solver ⊞" styleClass="kmap-title"/>
+    </HBox>
+
+    <!-- Variable selector -->
+    <HBox alignment="CENTER" spacing="10">
+        <Label text="Number of variables:"
+               style="-fx-font-size:13px; -fx-text-fill:#2D6B35; -fx-font-weight:bold;"/>
+        <Button text="2" styleClass="var-btn" fx:id="btn2"
+                onAction="#setVars2"/>
+        <Button text="3" styleClass="var-btn" fx:id="btn3"
+                onAction="#setVars3"/>
+        <Button text="4" styleClass="var-btn" fx:id="btn4"
+                onAction="#setVars4"/>
+        <Button text="5" styleClass="var-btn" fx:id="btn5"
+                onAction="#setVars5"/>
+        <Button text="6" styleClass="var-btn" fx:id="btn6"
+                onAction="#setVars6"/>
+    </HBox>
+
+    <!-- Main area: drag panel + K-map canvas -->
+    <HBox spacing="16" alignment="CENTER" VBox.vgrow="ALWAYS">
+
+        <!-- Drag values panel -->
+        <VBox styleClass="kmap-card" spacing="10"
+              alignment="CENTER" minWidth="70">
+            <Label text="Click to cycle:"
+                   style="-fx-font-size:11px; -fx-text-fill:#7A7A7A;"/>
+            <VBox alignment="CENTER" spacing="6"
+                  style="-fx-background-color:#EBF4EC;
+                         -fx-background-radius:10px;
+                         -fx-border-radius:10px;
+                         -fx-border-color:#C5DCC8;
+                         -fx-border-width:1.5px;
+                         -fx-padding:8px;">
+                <Label text="0"
+                       style="-fx-font-size:16px; -fx-font-weight:bold;
+                              -fx-text-fill:#2E7FA8;"/>
+            </VBox>
+            <VBox alignment="CENTER" spacing="6"
+                  style="-fx-background-color:#C5DCC8;
+                         -fx-background-radius:10px;
+                         -fx-border-radius:10px;
+                         -fx-border-color:#2D6B35;
+                         -fx-border-width:1.5px;
+                         -fx-padding:8px;">
+                <Label text="1"
+                       style="-fx-font-size:16px; -fx-font-weight:bold;
+                              -fx-text-fill:#2D6B35;"/>
+            </VBox>
+            <VBox alignment="CENTER" spacing="6"
+                  style="-fx-background-color:#F7E8A0;
+                         -fx-background-radius:10px;
+                         -fx-border-radius:10px;
+                         -fx-border-color:#8A6E00;
+                         -fx-border-width:1.5px;
+                         -fx-padding:8px;">
+                <Label text="X"
+                       style="-fx-font-size:16px; -fx-font-weight:bold;
+                              -fx-text-fill:#8A6E00;"/>
+            </VBox>
+            <Label text="X = don't care"
+                   style="-fx-font-size:10px; -fx-text-fill:#7A7A7A;
+                          -fx-wrap-text:true;" maxWidth="65"/>
+        </VBox>
+
+        <!-- K-map canvas -->
+        <VBox styleClass="kmap-card" VBox.vgrow="ALWAYS"
+              HBox.hgrow="ALWAYS" alignment="CENTER">
+            <Canvas fx:id="kmapCanvas" width="620" height="360"/>
+        </VBox>
+
+    </HBox>
+
+    <!-- Result area -->
+    <VBox styleClass="kmap-card" spacing="6"
+          style="-fx-border-color:#F2C9D8;">
+        <Label text="Simplified expression"
+               style="-fx-font-size:12px; -fx-text-fill:#7A7A7A;"/>
+        <Label fx:id="resultLabel" styleClass="kmap-result-expr"
+               text="—" wrapText="true"/>
+    </VBox>
+
+    <!-- Buttons -->
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Solve ✦"        styleClass="btn, btn-sage"
+                onAction="#solve"/>
+        <Button text="Clear ✕"        styleClass="btn, btn-sky"
+                onAction="#clearMap"/>
+        <Button text="Clear &amp; Retry" styleClass="btn, btn-yellow"
+                onAction="#retry"/>
+    </HBox>
+
+</VBox>

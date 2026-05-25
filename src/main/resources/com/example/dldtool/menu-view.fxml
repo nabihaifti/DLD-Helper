@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.geometry.Insets?>
+
+<VBox alignment="CENTER" spacing="20"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.dldtool.controller.MenuController"
+      styleClass="menu-root"
+      prefWidth="700" prefHeight="550">
+
+    <padding>
+        <Insets top="50" bottom="50" left="80" right="80"/>
+    </padding>
+
+    <!-- Title -->
+    <Label text="DLD Helper" styleClass="menu-title"/>
+ 
+
+    <VBox spacing="14" alignment="CENTER"
+          style="-fx-padding: 20 0 0 0;">
+
+        <!-- Simulator Card -->
+        <HBox styleClass="menu-card, menu-card-sim"
+              onMouseClicked="#openSimulator"
+              prefWidth="400" alignment="CENTER">
+            <padding>
+                <Insets top="20" bottom="20" left="20" right="20"/>
+            </padding>
+            <Label text="Logic Gates Simulator"
+                   styleClass="menu-card-title, menu-card-title-sim"/>
+        </HBox>
+
+        <!-- Simplifier Card -->
+        <HBox styleClass="menu-card, menu-card-func"
+              onMouseClicked="#openSimplifier"
+              prefWidth="400" alignment="CENTER">
+            <padding>
+                <Insets top="20" bottom="20" left="20" right="20"/>
+            </padding>
+            <Label text="Function Simplifier"
+                   styleClass="menu-card-title, menu-card-title-func"/>
+        </HBox>
+
+        <!-- K-Map Card -->
+        <HBox styleClass="menu-card, menu-card-kmap"
+              onMouseClicked="#openKMap"
+              prefWidth="400" alignment="CENTER">
+            <padding>
+                <Insets top="20" bottom="20" left="20" right="20"/>
+            </padding>
+            <Label text="K-Map Solver"
+                   styleClass="menu-card-title, menu-card-title-kmap"/>
+        </HBox>
+
+    </VBox>
+</VBox>
